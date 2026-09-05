@@ -1,0 +1,53 @@
+# Ghost Core & CLI
+.ghost-cli
+current
+versions/
+config.*.json
+!config.example.json
+
+# Ghost Content / Local State
+content/apps/
+content/data/
+content/files/
+content/images/
+content/logs/
+content/media/
+content/public/
+content/settings/
+
+# Ghost Default Themes (symlinks from core)
+content/themes/casper
+content/themes/source
+
+# Dependencies & Package Managers
+node_modules/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# Theme Build Outputs & Archives
+dist/
+*.zip
+
+# Logs & Runtime
+*.log
+logs/
+*.pid
+*.seed
+pids/
+
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project

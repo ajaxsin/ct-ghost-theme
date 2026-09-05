@@ -1,0 +1,230 @@
+<footer class="footer-container">
+
+    <div class="divider"></div>
+
+    {{!-- 2. Brand, Newsletter & Trustpilot Section --}}
+    <div class="newsletter-section">
+        {{!-- Brand info & Social links --}}
+        <div class="brand-col">
+            <a href="{{@site.url}}" class="brand-logo" aria-label="{{@site.title}}">
+                {{#if @site.logo}}
+                    <img src="{{@site.logo}}" alt="{{@site.title}}">
+                {{else}}
+                    <img src="{{asset "images/footer/crafttatva-logo.png"}}" alt="{{@site.title}}">
+                {{/if}}
+            </a>
+            <p class="brand-desc">
+                {{#if @site.description}}{{@site.description}}{{else}}Discover and collect original art from independent Indian artists.{{/if}}
+            </p>
+            <div class="social-links">
+                {{#social_accounts @site}}
+                    <a href="{{href}}" class="social-link" target="_blank" rel="noopener" aria-label="{{name}}">
+                        {{#match type "facebook"}}<i class="fa-brands fa-facebook-f"></i>
+                        {{else match type "instagram"}}<i class="fa-brands fa-instagram"></i>
+                        {{else match type "youtube"}}<i class="fa-brands fa-youtube"></i>
+                        {{else match type "linkedin"}}<i class="fa-brands fa-linkedin-in"></i>
+                        {{else match type "x"}}<i class="fa-brands fa-x-twitter"></i>
+                        {{else match type "threads"}}<i class="fa-brands fa-threads"></i>
+                        {{else match type "tiktok"}}<i class="fa-brands fa-tiktok"></i>
+                        {{else match type "bluesky"}}<i class="fa-brands fa-bluesky"></i>
+                        {{else match type "mastodon"}}<i class="fa-brands fa-mastodon"></i>
+                        {{else}}<i class="fa-solid fa-link"></i>{{/match}}
+                    </a>
+                {{else}}
+                    {{#unless @custom.pinterest_url}}
+                        {{!-- Fallback links when no social accounts configured in Ghost yet --}}
+                        <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://facebook.com" class="social-link" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://pinterest.com" class="social-link" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    {{/unless}}
+                {{/social_accounts}}
+                {{#if @custom.pinterest_url}}
+                    <a href="{{@custom.pinterest_url}}" class="social-link" target="_blank" rel="noopener" aria-label="Pinterest">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+                {{/if}}
+            </div>
+        </div>
+
+        {{!-- Newsletter Subscription --}}
+        <div class="subscribe-col">
+            <h3 class="subscribe-title">{{#if @custom.signup_heading}}{{@custom.signup_heading}}{{else}}Stay Inspired{{/if}}</h3>
+            <p class="subscribe-desc">{{#if @custom.signup_subheading}}{{@custom.signup_subheading}}{{else}}Get new artwork, artist stories, curated collections and exclusive updates.{{/if}}</p>
+            <div class="subscribe-form-wrapper">
+                <form class="subscribe-form" data-members-form="subscribe">
+                    <input type="email" class="subscribe-input" placeholder="{{t "Email Address"}}" required data-members-email>
+                    <button type="submit" class="subscribe-button">
+                        <span class="subscribe-state-default">{{t "Subscribe"}}</span>
+                        <span class="subscribe-state-loading">{{t "Sending..."}}</span>
+                        <span class="subscribe-state-success">{{t "Subscribed!"}}</span>
+                    </button>
+                </form>
+                <p data-members-error class="subscribe-error"></p>
+            </div>
+            <div class="subscribe-terms">
+                By subscribing, you agree to our <a href="{{@site.url}}/privacy/">Privacy Policy</a>.
+            </div>
+        </div>
+
+        {{!-- Trustpilot Widget --}}
+        <div class="trustpilot-col">
+            <div class="trustpilot-header">
+                <i class="fa-solid fa-star tp-star-icon"></i> Trustpilot
+            </div>
+            <div class="trustpilot-stars">
+                <div class="star-box"><i class="fa-solid fa-star"></i></div>
+                <div class="star-box"><i class="fa-solid fa-star"></i></div>
+                <div class="star-box"><i class="fa-solid fa-star"></i></div>
+                <div class="star-box"><i class="fa-solid fa-star"></i></div>
+                <div class="star-box"><i class="fa-solid fa-star"></i></div>
+            </div>
+            <div class="trustpilot-score">
+                TrustScore <strong>4.8</strong> | <strong>347</strong> reviews
+            </div>
+        </div>
+    </div>
+
+    {{!-- 3. Dark Main Links Directory --}}
+    <div class="links-section">
+        <div class="links-grid">
+            {{!-- Col 1 --}}
+            <div class="links-column">
+                <div class="links-subgroup">
+                    <h4 class="column-title">About Crafttatva</h4>
+                    <ul class="column-list">
+                        <li><a href="#">Meet Our Team</a></li>
+                        <li><a href="#">Our Artists</a></li>
+                        <li><a href="#">Art Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="links-subgroup">
+                    <h4 class="column-title">Art Guide</h4>
+                    <ul class="column-list">
+                        <li><a href="#">How to Buy Original Paintings</a></li>
+                        <li><a href="#">How to Choose a Painting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {{!-- Col 2 --}}
+            <div class="links-column">
+                <div class="links-subgroup">
+                    <h4 class="column-title">Customer Service</h4>
+                    <ul class="column-list">
+                        <li><a href="#">Shipping & Delivery</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Customer Testimonials</a></li>
+                        <li><a href="#">My Account</a></li>
+                    </ul>
+                </div>
+                <div class="links-subgroup">
+                    <h4 class="column-title">Legal</h4>
+                    <ul class="column-list">
+                        <li><a href="#">Seller Agreement</a></li>
+                        <li><a href="#">Privacy Policies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {{!-- Col 3 --}}
+            <div class="links-column">
+                <div class="links-subgroup">
+                    <h4 class="column-title">Popular Categories</h4>
+                    <ul class="column-list">
+                        <li><a href="#">Abstract Art</a></li>
+                        <li><a href="#">Landscape Art</a></li>
+                        <li><a href="#">Figurative Art</a></li>
+                        <li><a href="#">Folk Art</a></li>
+                        <li><a href="#">Ghat Paintings</a></li>
+                        <li><a href="#">Large Canvas</a></li>
+                        <li><a href="#">Nude Art</a></li>
+                        <li><a href="#">Contemporary</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {{!-- Col 4 --}}
+            <div class="links-column">
+                <div class="links-subgroup">
+                    <h4 class="column-title">Popular Subjects</h4>
+                    <ul class="column-list">
+                        <li><a href="#">Architecture</a></li>
+                        <li><a href="#">Boat & Marine</a></li>
+                        <li><a href="#">Buddha Art</a></li>
+                        <li><a href="#">Cityscape</a></li>
+                        <li><a href="#">Erotic Art</a></li>
+                        <li><a href="#">Fantasy Art</a></li>
+                        <li><a href="#">Religious Art</a></li>
+                        <li><a href="#">Seascape</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {{!-- Col 5 --}}
+            <div class="links-column">
+                <div class="links-subgroup">
+                    <h4 class="column-title">Mediums & Styles</h4>
+                    <ul class="column-list">
+                        <li><a href="#">Acrylic on Canvas</a></li>
+                        <li><a href="#">Oil on Canvas</a></li>
+                        <li><a href="#">Watercolor</a></li>
+                        <li><a href="#">Pencil Art</a></li>
+                        <li><a href="#">Mixed Media</a></li>
+                    </ul>
+                </div>
+                <div class="links-subgroup">
+                    <h4 class="column-title">Featured Artists</h4>
+                    <ul class="column-list">
+                        <li><a href="#">Aranya Studio</a></li>
+                        <li><a href="#">Vikram Seth</a></li>
+                        <li><a href="#">Priya Das</a></li>
+                        <li><a href="#">Rajesh Gupta</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- 4. Secure Payments Section --}}
+    <div class="payment-section">
+        <div class="payment-title">Secure Payments By</div>
+        <div class="payment-badges">
+            <div class="badge-card"><img src="{{asset "images/footer/paypal.svg"}}" alt="PayPal" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/visa.svg"}}" alt="Visa" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/mastercard.svg"}}" alt="Mastercard" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/rupay.svg"}}" alt="RuPay" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/maestro.svg"}}" alt="Maestro" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/g_pay.svg"}}" alt="Google Pay" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/apple_pay.svg"}}" alt="Apple Pay" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/amex.svg"}}" alt="American Express" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/affirm.svg"}}" alt="Affirm" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/bitcoin.svg"}}" alt="Bitcoin" class="payment-icon"></div>
+            <div class="badge-card"><img src="{{asset "images/footer/bank_transfer.svg"}}" alt="Bank Transfer" class="payment-icon"></div>
+        </div>
+    </div>
+
+    {{!-- 5. Bottom Copyright Bar --}}
+    <div class="bottom-bar">
+        <div class="bottom-nav">
+            {{#if @site.secondary_navigation}}
+                {{navigation type="secondary"}}
+            {{else}}
+                <a href="#">Terms of Services</a>
+                <a href="#">UIDAI Certificates</a>
+                <a href="#">Global Shipping</a>
+                <a href="#">Refund & Returns</a>
+                <a href="#">Privacy Policies</a>
+                <a href="#">Seller Agreement</a>
+                <a href="#">Meet our team</a>
+            {{/if}}
+        </div>
+        <div class="copyright">
+            <i class="fa-regular fa-circle-question"></i>
+            <span>Copyright &copy; 2023-{{date format="YYYY"}}, {{@site.title}}, All rights reserved.</span>
+        </div>
+        <div class="built-for">Built for the modern artisan</div>
+    </div>
+</footer>
