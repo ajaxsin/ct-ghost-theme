@@ -1992,6 +1992,12 @@ Search                         LOGO                    Login Subscribe
     --container-width: 1120px;
     --content-width: 1040px;
     --container-gap: clamp(16px, 1.2rem + 1vw, 32px);
+    --content-font-size: 2rem;
+}
+
+.post-template .gh-content {
+    font-size: 2rem;
+    line-height: 1.68;
 }
 
 .gh-article-header {
@@ -2091,6 +2097,20 @@ Search                         LOGO                    Login Subscribe
 
 .gh-article-image img {
     width: 100%;
+}
+
+.post-template .gh-article-image {
+    grid-column: main;
+    width: 100%;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-template .gh-article-image img {
+    width: 100%;
+    max-height: clamp(280px, 45vh, 480px);
+    object-fit: cover;
 }
 
 /* 14.2. Page template */
