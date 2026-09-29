@@ -17,6 +17,13 @@
                 <p class="gh-article-excerpt is-body">{{custom_excerpt}}</p>
             {{/if}}
 
+
+            {{> "feature-image"}}
+
+        </header>
+
+        <section class="gh-content gh-canvas is-body{{#if @custom.enable_drop_caps_on_posts}} drop-cap{{/if}}">
+            {{content}}
             {{#if @custom.show_post_metadata}}
                 <div class="gh-meta-share">
                     <div class="gh-article-meta">
@@ -46,13 +53,6 @@
                     </a>
                 </div>
             {{/if}}
-
-            {{> "feature-image"}}
-
-        </header>
-
-        <section class="gh-content gh-canvas is-body{{#if @custom.enable_drop_caps_on_posts}} drop-cap{{/if}}">
-            {{content}}
         </section>
 
     </article>
