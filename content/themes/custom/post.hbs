@@ -48,14 +48,16 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#/share" class="gh-button gh-button-share">
-                        {{t "Share"}}
-                    </a>
+                    <button type="button" class="gh-button gh-button-share" data-share-dialog-trigger aria-label="{{t "Share"}}">
+                        <i class="fa-solid fa-share-nodes" style="margin-right: 6px;"></i>{{t "Share"}}
+                    </button>
                 </div>
             {{/if}}
         </section>
 
     </article>
+
+    {{> "components/share-modal"}}
 
     {{#if comments}}
         <div class="gh-comments gh-canvas">

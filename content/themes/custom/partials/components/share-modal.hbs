@@ -1,0 +1,88 @@
+<div class="gh-share-modal-overlay" id="gh-share-modal" aria-hidden="true">
+    <div class="gh-share-modal" role="dialog" aria-modal="true" aria-labelledby="gh-share-modal-title">
+        <div class="gh-share-modal-header">
+            <h3 class="gh-share-modal-title" id="gh-share-modal-title">{{t "Share this post"}}</h3>
+            <button type="button" class="gh-share-modal-close" data-share-modal-close aria-label="{{t "Close"}}">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="gh-share-grid">
+            {{!-- WhatsApp --}}
+            <a href="https://api.whatsapp.com/send?text={{encode title}}%20{{url absolute="true"}}" 
+               class="gh-share-item gh-share-whatsapp" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Share on WhatsApp">
+                <div class="gh-share-icon-wrapper">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <span>WhatsApp</span>
+            </a>
+
+            {{!-- Instagram --}}
+            <button type="button" 
+                    class="gh-share-item gh-share-instagram" 
+                    data-share-instagram
+                    data-url="{{url absolute="true"}}"
+                    data-title="{{title}}"
+                    aria-label="Share on Instagram">
+                <div class="gh-share-icon-wrapper">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <span>Instagram</span>
+            </button>
+
+            {{!-- Twitter / X --}}
+            <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute="true"}}" 
+               class="gh-share-item gh-share-x" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Share on X">
+                <div class="gh-share-icon-wrapper">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </div>
+                <span>X / Twitter</span>
+            </a>
+
+            {{!-- Facebook --}}
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" 
+               class="gh-share-item gh-share-facebook" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Share on Facebook">
+                <div class="gh-share-icon-wrapper">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <span>Facebook</span>
+            </a>
+
+            {{!-- LinkedIn --}}
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute="true"}}" 
+               class="gh-share-item gh-share-linkedin" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Share on LinkedIn">
+                <div class="gh-share-icon-wrapper">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+
+        {{!-- Copy Link Section --}}
+        <div class="gh-share-copy">
+            <span class="gh-share-copy-label">{{t "Or copy link"}}</span>
+            <div class="gh-share-copy-box">
+                <input type="text" class="gh-share-copy-input" value="{{url absolute="true"}}" readonly data-share-copy-input>
+                <button type="button" class="gh-share-copy-btn" data-share-copy-btn aria-label="{{t "Copy link"}}">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>{{t "Copy"}}</span>
+                </button>
+            </div>
+        </div>
+
+        {{!-- Toast Message --}}
+        <div class="gh-share-toast" data-share-toast aria-live="polite"></div>
+    </div>
+</div>
